@@ -1,7 +1,9 @@
 <launch>
-  <arg name="poll_period" default="1.0"/>
+  <arg name="poll_period" default="0.1"/>
+  <arg name="pub_node_stats" default="False"/>
 
-  <node pkg="cpu_monitor" name="cpu_monitor" type="monitor.py" output="screen">
+  <node pkg="cpu_monitor" name="diag" type="monitor.py" output="screen">
     <param name="poll_period" value="$(arg poll_period)"/>
+    <param name="pub_node_stats" value="$(arg pub_node_stats)"/>
   </node>
 </launch>
